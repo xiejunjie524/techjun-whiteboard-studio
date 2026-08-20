@@ -4,7 +4,7 @@ __pycache__/
 assets/whiteboard/
 outputs/
 output-autopilot/
-test-autopilot/
+test-autopilot*/
 .env
 *.srt
 *.mp4
