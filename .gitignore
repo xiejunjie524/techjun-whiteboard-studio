@@ -3,6 +3,8 @@ __pycache__/
 *.pyc
 assets/whiteboard/
 outputs/
+output-autopilot/
+test-autopilot/
 .env
 *.srt
 *.mp4

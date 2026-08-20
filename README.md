@@ -33,6 +33,22 @@ python scripts/validate_project.py image.png image.annotation.json
 python scripts/techjun.py render image.png image.annotation.json output.mp4 --config config/default.json
 ```
 
+## 无人值守模式
+
+配置好 `WISART_API_KEY` 后，一条命令完成生图、标注、校验、渲染和多幕合并：
+
+```bash
+python scripts/techjun.py autopilot input.srt --out output-autopilot --config config/default.json
+```
+
+中断后可从已有图片继续：
+
+```bash
+python scripts/techjun.py autopilot input.srt --out output-autopilot --config config/default.json --resume
+```
+
+结果位于 `output-autopilot/final.mp4`，每幕目录保存图片、节点、标注、预览图和单幕视频，`manifest.json` 记录状态与路径。
+
 图片与标注必须同名。智画生成的源图应遵循：暖米黄纸张、深灰线稿、少量概念色、画面无文字。
 
 ## 许可证与来源

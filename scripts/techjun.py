@@ -10,6 +10,7 @@ RENDER = ROOT / "scripts" / "render_stream_whiteboard.py"
 PREVIEW = ROOT / "scripts" / "render_annotation_preview.py"
 ANNOTATE = ROOT / "scripts" / "auto_annotate.py"
 MERGE = ROOT / "scripts" / "merge_scenes.py"
+AUTOPILOT = ROOT / "scripts" / "autopilot.py"
 HAND = ROOT / "assets" / "drawing-hand-techjun.png"
 DEFAULT_CONFIG = ROOT / "config" / "default.json"
 
@@ -51,10 +52,15 @@ def main() -> int:
     a = sub.add_parser("preview"); a.add_argument("image", type=Path); a.add_argument("annotation", type=Path); a.add_argument("output", type=Path)
     a = sub.add_parser("annotate"); a.add_argument("image", type=Path); a.add_argument("cues", type=Path); a.add_argument("output", type=Path)
     a = sub.add_parser("render"); a.add_argument("image", type=Path); a.add_argument("annotation", type=Path); a.add_argument("output", type=Path); a.add_argument("--config", type=Path)
+    a = sub.add_parser("autopilot"); a.add_argument("srt", type=Path); a.add_argument("--out", type=Path, default=Path("output-autopilot")); a.add_argument("--config", type=Path); a.add_argument("--resume", action="store_true")
     if len(sys.argv) == 1: p.print_help(); return 0
     args = p.parse_args()
     config = load_config(getattr(args, "config", None))
-    if args.command == "storyboard": init_project(args.srt, args.out, config)
+    if args.command == "autopilot":
+        cmd = [sys.executable, AUTOPILOT, args.srt, "--out", args.out, "--config", args.config or DEFAULT_CONFIG]
+        if args.resume: cmd.append("--resume")
+        run(cmd)
+    elif args.command == "storyboard": init_project(args.srt, args.out, config)
     elif args.command == "annotate": run([sys.executable, ANNOTATE, args.image, args.cues, args.output])
     elif args.command == "preview": preview(args.image, args.annotation, args.output)
     elif args.command == "render": render(args.image, args.annotation, args.output, config)

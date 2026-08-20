@@ -16,3 +16,4 @@ jobs:
       - run: pip install pytest
       - run: pytest -q
       - run: python scripts/validate_project.py examples/scene-01-seed-growth.png examples/scene-01-seed-growth.annotation.json
+      - run: python scripts/autopilot.py examples/seed-growth.srt --out /tmp/techjun-smoke --config config/default.json --reuse-image examples/scene-01-seed-growth.png

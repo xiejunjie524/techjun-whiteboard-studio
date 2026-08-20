@@ -33,6 +33,16 @@ python scripts/validate_project.py image.png image.annotation.json
 python scripts/techjun.py render image.png image.annotation.json output.mp4 --config config/default.json
 ```
 
+## Unattended mode
+
+After configuring `WISART_API_KEY`, one command generates images, annotations, validation previews, scene videos, and the merged result:
+
+```bash
+python scripts/techjun.py autopilot input.srt --out output-autopilot --config config/default.json
+```
+
+Resume an interrupted run with `--resume`. The final file is written to `output-autopilot/final.mp4`, while `manifest.json` records scene status and artifact paths.
+
 ## License and attribution
 
 This is an independent derivative of [geeklee/srt-whiteboard-animation](https://github.com/geeklee/srt-whiteboard-animation). The upstream MIT license and attribution are preserved; new code, configuration, and Tech Jun brand assets are maintained by this project. See [LICENSE](LICENSE).

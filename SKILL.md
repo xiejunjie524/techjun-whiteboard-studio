@@ -9,6 +9,16 @@ description: 将 SRT 字幕、智画插画和科技俊品牌笔手制作成中�
 
 ## 工作流
 
+用户明确要求无人值守、一键生成或日更模式时，直接运行：
+
+```bash
+python scripts/techjun.py autopilot input.srt --out output-autopilot --config config/default.json
+```
+
+该模式自动调用智画、生成叙事节点、标注、校验、预览、逐幕渲染和合并，不在中间暂停确认。失败后使用 `--resume` 复用已经生成的图片继续执行。
+
+精修模式使用以下步骤：
+
 1. 用 `scripts/techjun.py storyboard input.srt --out project` 解析字幕并生成分镜草稿。
 2. 使用智画生成 16:9 或 9:16 的无文字线稿图，放到项目目录。
 3. 对分离式横向构图先用 `scripts/techjun.py annotate image.png cues.json image.annotation.json` 生成标注初稿，再按字幕事件修正区域、时间和保护区。

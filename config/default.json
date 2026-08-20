@@ -9,5 +9,8 @@
   "sceneTargetSec": 30,
   "sceneMinSec": 25,
   "sceneMaxSec": 35,
-  "confirmMode": "精修"
+  "confirmMode": "精修",
+  "imageModel": "gpt-image-2",
+  "maxBeatsPerScene": 3,
+  "retryCount": 3
 }
