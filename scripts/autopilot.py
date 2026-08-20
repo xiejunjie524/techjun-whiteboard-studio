@@ -74,6 +74,7 @@ def main() -> int:
     p.add_argument("--config", type=Path, default=ROOT / "config/default.json")
     p.add_argument("--model", default="gpt-image-2"); p.add_argument("--max-beats", type=int, default=3)
     p.add_argument("--retries", type=int, default=3); p.add_argument("--resume", action="store_true")
+    p.add_argument("--skip-render", action="store_true", help="仅执行生成、标注和校验，不输出视频")
     p.add_argument("--reuse-image", type=Path, help="测试或重跑时为单幕复用已有图片")
     args = p.parse_args()
     if not args.srt.is_file(): raise SystemExit(f"SRT 不存在: {args.srt}")
@@ -95,14 +96,17 @@ def main() -> int:
         run([sys.executable, ANNOTATE, image, cues_path, annotation])
         run([sys.executable, VALIDATE, image, annotation])
         run([sys.executable, ROOT / "scripts/render_annotation_preview.py", image, annotation, preview])
-        run([sys.executable, RENDER, image, annotation, video, HAND, "--ink-path", config.get("inkPath", "grid"), "--color-fill", config.get("colorFill", "contour-wipe"), "--cap-long-edge", config.get("capLongEdge", 1080), "--fps", config.get("fps", 60)])
-        videos.append(video); manifest["scenes"].append({"index": index, "image": str(image), "annotation": str(annotation), "video": str(video), "status": "complete"})
+        if not args.skip_render:
+            run([sys.executable, RENDER, image, annotation, video, HAND, "--ink-path", config.get("inkPath", "grid"), "--color-fill", config.get("colorFill", "contour-wipe"), "--cap-long-edge", config.get("capLongEdge", 1080), "--fps", config.get("fps", 60)])
+            videos.append(video)
+        manifest["scenes"].append({"index": index, "image": str(image), "annotation": str(annotation), "preview": str(preview), "video": str(video) if not args.skip_render else None, "status": "complete"})
         (args.out / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
     final = args.out / "final.mp4"
-    if len(videos) == 1: final.write_bytes(videos[0].read_bytes())
-    else: run([sys.executable, MERGE, "--inputs", *videos, "--output", final])
+    if not args.skip_render:
+        if len(videos) == 1: final.write_bytes(videos[0].read_bytes())
+        else: run([sys.executable, MERGE, "--inputs", *videos, "--output", final])
     manifest["status"] = "complete"; manifest["output"] = str(final)
     (args.out / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"OUTPUT={final.resolve()}"); return 0
+    print(f"OUTPUT={(final if not args.skip_render else args.out / 'manifest.json').resolve()}"); return 0
 
 if __name__ == "__main__": raise SystemExit(main())
