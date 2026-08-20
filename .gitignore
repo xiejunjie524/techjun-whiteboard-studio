@@ -14,3 +14,6 @@ outputs/
 !assets/drawing-hand.png
 !assets/drawing-hand-techjun.png
 !examples/*.png
+!examples/**/*.png
+!examples/**/*.mp4
+!examples/**/*.srt
