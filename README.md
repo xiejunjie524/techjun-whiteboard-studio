@@ -6,7 +6,17 @@
 
 ## 示例视频
 
-[下载/播放示例视频](examples/scene-01-seed-growth-whiteboard.mp4)
+### 完整多幕示例
+
+[下载/播放《AI Agent 和普通聊天机器人》1080P 成片](examples/agent-vs-chatbot/techjun-agent-demo-1080p.mp4)
+
+- 8 幕，44.7 秒，1920x1080，60fps
+- 包含中文旁白、同步字幕、信息卡片、BGM 和转场音效
+- [查看完整示例资产与音频来源](examples/agent-vs-chatbot/README.md)
+
+### 单幕渲染示例
+
+[下载/播放种子生长示例](examples/scene-01-seed-growth-whiteboard.mp4)
 
 示例主题：种子落入土里 -> 雨水让它发芽 -> 长成向阳植物。
 
@@ -19,6 +29,8 @@
 - 分离式插画自动生成标注初稿
 - 区域、顺序、时序和遮挡保护区控制
 - 科技俊品牌笔手素材
+- 1080P / 60fps 多幕输出
+- 旁白、字幕、信息卡片和音效合成参考
 - Windows、macOS、Linux 支持
 - 可作为 Codex Skill 使用
 

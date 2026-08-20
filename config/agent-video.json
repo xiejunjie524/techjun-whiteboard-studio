@@ -1,0 +1,16 @@
+{
+  "brand": "科技俊",
+  "paperColor": "#F5EBD7",
+  "aspect": "16:9",
+  "capLongEdge": 1920,
+  "fps": 60,
+  "inkPath": "grid",
+  "colorFill": "contour-wipe",
+  "sceneTargetSec": 8,
+  "sceneMinSec": 6,
+  "sceneMaxSec": 10,
+  "confirmMode": "无人值守",
+  "imageModel": "gpt-image-2",
+  "maxBeatsPerScene": 2,
+  "retryCount": 3
+}

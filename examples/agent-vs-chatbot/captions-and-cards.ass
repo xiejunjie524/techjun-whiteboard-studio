@@ -1,0 +1,46 @@
+[Script Info]
+Title: TechJun Agent Demo - Paced Captions and Cards
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+ScaledBorderAndShadow: yes
+WrapStyle: 0
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Caption,Microsoft YaHei,38,&H00FFFFFF,&H000000FF,&HCC202020,&H70000000,0,0,0,0,100,100,0,0,1,2,1,2,120,120,48,1
+Style: CardTitle,Microsoft YaHei,48,&H002C2C2C,&H000000FF,&H00F8F2E5,&H38000000,-1,0,0,0,100,100,0,0,3,18,3,5,40,40,30,1
+Style: CardText,Microsoft YaHei,39,&H00333333,&H000000FF,&H00FFF9ED,&H30000000,0,0,0,0,100,100,0,0,3,15,2,5,40,40,30,1
+Style: AccentOrange,Microsoft YaHei,42,&H002E2E2E,&H000000FF,&H0096D3FF,&H30000000,-1,0,0,0,100,100,0,0,3,15,2,5,40,40,30,1
+Style: AccentBlue,Microsoft YaHei,42,&H002E2E2E,&H000000FF,&H00E7C58E,&H30000000,-1,0,0,0,100,100,0,0,3,15,2,5,40,40,30,1
+Style: SmallCard,Microsoft YaHei,35,&H00303030,&H000000FF,&H00FFF9ED,&H28000000,-1,0,0,0,100,100,0,0,3,13,2,5,30,30,25,1
+Style: Note,Microsoft YaHei,30,&H00606060,&H000000FF,&H00F5EBD7,&H00000000,-1,0,0,0,100,100,0,0,1,0,0,5,20,20,20,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 10,0:00:00.45,0:00:03.49,Caption,,0,0,0,,假设你对聊天机器人说：帮我做一份竞品分析。
+Dialogue: 10,0:00:05.27,0:00:08.39,Caption,,0,0,0,,普通聊天机器人通常是你问一句，它直接回答一句。
+Dialogue: 10,0:00:10.09,0:00:13.13,Caption,,0,0,0,,但遇到复杂任务，只给一个答案往往还不够。
+Dialogue: 10,0:00:14.91,0:00:18.43,Caption,,0,0,0,,AI Agent 会先理解你的目标，判断最终需要交付什么。
+Dialogue: 10,0:00:19.93,0:00:24.25,Caption,,0,0,0,,然后它会把任务拆成搜索资料、整理数据和撰写结论。
+Dialogue: 10,0:00:25.75,0:00:29.51,Caption,,0,0,0,,接着，Agent 可以调用搜索、代码、文件和浏览器等工具。
+Dialogue: 10,0:00:31.07,0:00:35.47,Caption,,0,0,0,,每完成一步，它还会检查结果，必要时重新尝试，直到任务完成。
+Dialogue: 10,0:00:37.33,0:00:42.13,Caption,,0,0,0,,所以聊天机器人更像问答员，而 Agent 更像一个会行动的数字助理。
+
+Dialogue: 0,0:00:15.10,0:00:18.75,CardTitle,,0,0,0,,{\an5\move(1600,390,1420,390,0,320)\fscx112\fscy112\t(0,320,\fscx100\fscy100)\frz-1.5\fad(120,220)}AI Agent
+Dialogue: 1,0:00:15.48,0:00:18.75,CardText,,0,0,0,,{\an5\move(1610,500,1420,500,0,300)\fscx110\fscy110\t(0,300,\fscx100\fscy100)\frz0.8\fad(100,220)}理解目标  +  自主执行
+Dialogue: 2,0:00:15.82,0:00:18.75,Note,,0,0,0,,{\an5\pos(1420,570)\c&H0075A6&\fad(100,220)}目标 → 规划 → 行动
+
+Dialogue: 0,0:00:19.88,0:00:24.55,SmallCard,,0,0,0,,{\an5\move(-180,330,420,330,0,280)\fscx115\fscy115\t(0,280,\fscx100\fscy100)\frz-2\fad(70,220)}01  搜索资料
+Dialogue: 0,0:00:20.70,0:00:24.55,SmallCard,,0,0,0,,{\an5\move(-180,445,470,445,0,280)\fscx115\fscy115\t(0,280,\fscx100\fscy100)\frz1.2\fad(70,220)}02  整理数据
+Dialogue: 0,0:00:21.52,0:00:24.55,SmallCard,,0,0,0,,{\an5\move(-180,560,430,560,0,280)\fscx115\fscy115\t(0,280,\fscx100\fscy100)\frz-0.7\fad(70,220)}03  撰写结论
+
+Dialogue: 0,0:00:25.68,0:00:30.38,AccentBlue,,0,0,0,,{\an5\move(2050,310,1370,310,0,280)\fscx112\fscy112\t(0,280,\fscx100\fscy100)\frz-1.5\fad(80,220)}搜索
+Dialogue: 0,0:00:26.24,0:00:30.38,AccentOrange,,0,0,0,,{\an5\move(2050,310,1580,310,0,280)\fscx112\fscy112\t(0,280,\fscx100\fscy100)\frz1.2\fad(80,220)}代码
+Dialogue: 0,0:00:26.80,0:00:30.38,AccentOrange,,0,0,0,,{\an5\move(2050,440,1370,440,0,280)\fscx112\fscy112\t(0,280,\fscx100\fscy100)\frz0.8\fad(80,220)}文件
+Dialogue: 0,0:00:27.36,0:00:30.38,AccentBlue,,0,0,0,,{\an5\move(2050,440,1580,440,0,280)\fscx112\fscy112\t(0,280,\fscx100\fscy100)\frz-1\fad(80,220)}浏览器
+Dialogue: 1,0:00:27.92,0:00:30.38,Note,,0,0,0,,{\an5\pos(1475,545)\c&H506050&\fad(100,220)}调用工具，继续执行
+
+Dialogue: 0,0:00:36.98,0:00:42.45,AccentOrange,,0,0,0,,{\an5\move(-300,330,480,330,0,380)\fscx114\fscy114\t(0,380,\fscx100\fscy100)\frz-1.4\fad(90,260)}聊天机器人\N回答问题
+Dialogue: 1,0:00:37.60,0:00:42.45,Note,,0,0,0,,{\an5\pos(480,500)\fad(90,260)}VS
+Dialogue: 0,0:00:37.86,0:00:42.45,AccentBlue,,0,0,0,,{\an5\move(-300,670,480,670,0,380)\fscx114\fscy114\t(0,380,\fscx100\fscy100)\frz1.1\fad(90,260)}AI Agent\N完成任务

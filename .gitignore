@@ -5,6 +5,7 @@ assets/whiteboard/
 outputs/
 output-autopilot/
 test-autopilot*/
+output-*/
 .env
 *.srt
 *.mp4
