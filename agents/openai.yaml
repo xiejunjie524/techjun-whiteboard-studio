@@ -1,0 +1,4 @@
+interface:
+  display_name: "科技俊白板工坊"
+  short_description: "将 SRT 字幕与插画自动制作成科技俊品牌白板手绘动画视频"
+  default_prompt: "使用 $techjun-whiteboard-studio 将这份 SRT 制作成白板手绘视频。"
