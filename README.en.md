@@ -26,10 +26,11 @@ Demo story: a seed falls into soil -> rain makes it sprout -> it grows toward th
 
 ```bash
 python scripts/prepare_env.py
-python scripts/techjun.py storyboard examples/seed-growth.srt --out project
+python scripts/techjun.py storyboard examples/seed-growth.srt --out project --config config/default.json
 python scripts/techjun.py annotate image.png examples/cues.json image.annotation.json
 python scripts/techjun.py preview image.png image.annotation.json image-preview.png
-python scripts/techjun.py render image.png image.annotation.json output.mp4
+python scripts/validate_project.py image.png image.annotation.json
+python scripts/techjun.py render image.png image.annotation.json output.mp4 --config config/default.json
 ```
 
 ## License and attribution

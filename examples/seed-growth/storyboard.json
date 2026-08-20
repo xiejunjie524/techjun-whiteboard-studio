@@ -3,21 +3,21 @@
     {
       "index": 1,
       "startMs": 0,
-      "endMs": 3500,
-      "durMs": 3500,
+      "endMs": 3000,
+      "durMs": 3000,
       "text": "一颗小种子落在土里。"
     },
     {
       "index": 2,
-      "startMs": 3500,
-      "endMs": 7500,
+      "startMs": 3000,
+      "endMs": 7000,
       "durMs": 4000,
       "text": "下了一场雨，种子慢慢发芽。"
     },
     {
       "index": 3,
-      "startMs": 7500,
-      "endMs": 12000,
+      "startMs": 7000,
+      "endMs": 11500,
       "durMs": 4500,
       "text": "它长成了一株向着阳光的小植物。"
     }
@@ -26,8 +26,8 @@
     {
       "sceneIndex": 1,
       "startMs": 0,
-      "endMs": 12000,
-      "sceneDurationMs": 12000,
+      "endMs": 11500,
+      "sceneDurationMs": 11500,
       "cueRange": [
         1,
         3

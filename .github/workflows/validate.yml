@@ -12,3 +12,7 @@ jobs:
           python-version: '3.12'
       - run: python -m py_compile scripts/*.py
       - run: python scripts/techjun.py --help
+      - run: pip install -r requirements.txt
+      - run: pip install pytest
+      - run: pytest -q
+      - run: python scripts/validate_project.py examples/scene-01-seed-growth.png examples/scene-01-seed-growth.annotation.json

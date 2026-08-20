@@ -13,7 +13,8 @@ description: 将 SRT 字幕、智画插画和科技俊品牌笔手制作成中�
 2. 使用智画生成 16:9 或 9:16 的无文字线稿图，放到项目目录。
 3. 对分离式横向构图先用 `scripts/techjun.py annotate image.png cues.json image.annotation.json` 生成标注初稿，再按字幕事件修正区域、时间和保护区。
 4. 用 `scripts/techjun.py preview` 生成区域检查图。
-5. 用户确认标注后，用 `scripts/techjun.py render` 生成 MP4。
+5. 用 `scripts/validate_project.py` 检查图片尺寸、区域边界和时序。
+6. 用户确认标注后，用 `scripts/techjun.py render --config config/default.json` 生成 MP4。
 
 ## 品牌规范
 
