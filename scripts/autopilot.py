@@ -10,6 +10,7 @@ ANNOTATE = ROOT / "scripts/auto_annotate.py"
 VALIDATE = ROOT / "scripts/validate_project.py"
 RENDER = ROOT / "scripts/render_stream_whiteboard.py"
 MERGE = ROOT / "scripts/merge_scenes.py"
+TRANSITIONS = ROOT / "scripts/transition_director.py"
 HAND = ROOT / "assets/drawing-hand-techjun.png"
 
 def run(cmd: list[object], capture: bool = False) -> str:
@@ -81,6 +82,9 @@ def main() -> int:
     if not args.srt.is_file(): raise SystemExit(f"SRT 不存在: {args.srt}")
     config = json.loads(args.config.read_text(encoding="utf-8")); args.out.mkdir(parents=True, exist_ok=True)
     parsed = parse_srt(args.srt, config); cues = parsed["cues"]; manifest = {"source": str(args.srt), "status": "running", "scenes": []}
+    parsed_path = args.out / "parsed-scenes.json"; parsed_path.write_text(json.dumps(parsed, ensure_ascii=False, indent=2), encoding="utf-8")
+    transition_plan = args.out / "transitions.json"
+    run([sys.executable, TRANSITIONS, parsed_path, transition_plan, "--mode", config.get("transitionMode", "auto"), "--duration", config.get("transitionDurationSec", 0.18)])
     videos = []
     for scene in parsed["scenes"]:
         index = scene["sceneIndex"]; stem = f"scene-{index:02d}"; scene_dir = args.out / stem; scene_dir.mkdir(exist_ok=True)
@@ -106,7 +110,7 @@ def main() -> int:
     final = args.out / "final.mp4"
     if not args.skip_render:
         if len(videos) == 1: final.write_bytes(videos[0].read_bytes())
-        else: run([sys.executable, MERGE, "--inputs", *videos, "--output", final])
+        else: run([sys.executable, MERGE, "--inputs", *videos, "--output", final, "--transition-plan", transition_plan])
     manifest["status"] = "complete"; manifest["output"] = str(final)
     (args.out / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"OUTPUT={(final if not args.skip_render else args.out / 'manifest.json').resolve()}"); return 0

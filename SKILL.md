@@ -15,7 +15,11 @@ description: 将 SRT 字幕、智画插画和科技俊品牌笔手制作成中�
 python scripts/techjun.py autopilot input.srt --out output-autopilot --config config/default.json
 ```
 
-该模式自动调用智画、生成叙事节点、标注、校验、预览、逐幕渲染和合并，不在中间暂停确认。失败后使用 `--resume` 复用已经生成的图片继续执行。
+该模式自动调用智画、生成叙事节点、标注、校验、预览、逐幕渲染、语义转场导演和合并，不在中间暂停确认。失败后使用 `--resume` 复用已经生成的图片继续执行。
+
+### 自动转场导演
+
+默认配置 `transitionMode: "auto"`。流水线读取相邻幕的字幕语义，自动选择并记录转场到 `transitions.json`。对比或概念切换使用滑动，搜索、工具和任务推进使用纸张擦除，检查、结果和完成使用淡化，结尾使用圆形收束。可用 `transitionMode: "none"` 关闭转场，或用 `"paper"` 统一使用纸张擦除。每次运行还会保留 `parsed-scenes.json`，方便复查和二次调整。
 
 精修模式使用以下步骤：
 

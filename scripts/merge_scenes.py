@@ -15,6 +15,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import json
 from pathlib import Path
 
 
@@ -83,10 +84,36 @@ def _pyav_concat(inputs: list[Path], output: Path) -> bool:
     return True
 
 
+def _ffmpeg_xfade(inputs: list[Path], output: Path, plan_path: Path) -> bool:
+    ffmpeg, ffprobe = shutil.which("ffmpeg"), shutil.which("ffprobe")
+    if ffmpeg is None or ffprobe is None or not plan_path.exists() or len(inputs) < 2:
+        return False
+    rows = json.loads(plan_path.read_text(encoding="utf-8")).get("transitions", [])
+    if len(rows) != len(inputs) - 1 or any(r.get("style") == "cut" for r in rows):
+        return False
+    durations = []
+    for item in inputs:
+        probe = subprocess.run([ffprobe, "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(item)], capture_output=True, text=True)
+        if probe.returncode != 0: return False
+        durations.append(float(probe.stdout.strip()))
+    cmd = [ffmpeg, "-y", "-loglevel", "error"]
+    for item in inputs: cmd += ["-i", str(item)]
+    filters, current, elapsed = [], "[0:v]", durations[0]
+    for i, row in enumerate(rows):
+        duration = float(row.get("durationSec", 0.18)); offset = max(0.0, elapsed - duration); out = f"xf{i}"
+        filters.append(f"{current}[{i+1}:v]xfade=transition={row.get('style', 'fade')}:duration={duration}:offset={offset}[{out}]")
+        current, elapsed = f"[{out}]", elapsed + durations[i + 1] - duration
+    result = subprocess.run(cmd + ["-filter_complex", ";".join(filters), "-map", current, "-an", "-c:v", "libx264", "-crf", "20", "-pix_fmt", "yuv420p", str(output)], capture_output=True, text=True)
+    if result.returncode == 0:
+        print(f"  ffmpeg 自动转场完成: {output}"); return True
+    print(f"  [warn] 自动转场失败，回退硬切: {result.stderr.strip()[:240]}"); return False
+
+
 def main(argv=None) -> int:
     p = argparse.ArgumentParser(description="按顺序合并多幕白板动画 MP4")
     p.add_argument("--inputs", nargs="+", required=True, help="按播放顺序的 MP4 列表")
     p.add_argument("--output", required=True, help="合并输出路径")
+    p.add_argument("--transition-plan", help="transition_director.py 生成的 JSON 计划")
     args = p.parse_args(argv)
 
     inputs = [Path(x) for x in args.inputs]
@@ -97,7 +124,8 @@ def main(argv=None) -> int:
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
 
-    if _ffmpeg_concat_copy(inputs, output) or _pyav_concat(inputs, output):
+    plan = Path(args.transition_plan) if args.transition_plan else None
+    if (plan and _ffmpeg_xfade(inputs, output, plan)) or _ffmpeg_concat_copy(inputs, output) or _pyav_concat(inputs, output):
         print(f"OUTPUT={output.resolve()}")
         return 0
     print("[err] 合并失败：系统无 ffmpeg 且 PyAV 不可用", file=sys.stderr)

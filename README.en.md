@@ -30,6 +30,7 @@ Demo story: a seed falls into soil -> rain makes it sprout -> it grows toward th
 - Region, order, timing, and protected-region control
 - Tech Jun branded drawing-hand asset
 - 1080p / 60 fps multi-scene output
+- Semantic automatic transition selection with an auditable `transitions.json` plan
 - Reference workflow for narration, captions, information cards, and sound design
 - Windows, macOS, and Linux support
 - Codex Skill compatible

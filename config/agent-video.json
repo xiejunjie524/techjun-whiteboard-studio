@@ -12,5 +12,7 @@
   "confirmMode": "无人值守",
   "imageModel": "gpt-image-2",
   "maxBeatsPerScene": 2,
-  "retryCount": 3
+  "retryCount": 3,
+  "transitionMode": "auto",
+  "transitionDurationSec": 0.18
 }
