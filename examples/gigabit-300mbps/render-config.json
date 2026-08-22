@@ -1,0 +1,16 @@
+{
+  "brand": "科技俊",
+  "paperColor": "#F5EBD7",
+  "aspect": "16:9",
+  "capLongEdge": 1080,
+  "fps": 60,
+  "inkPath": "grid",
+  "colorFill": "contour-wipe",
+  "handVisibility": "ink-only",
+  "sceneTargetSec": 6,
+  "sceneMinSec": 5.5,
+  "sceneMaxSec": 7,
+  "transitionMode": "auto",
+  "transitionDurationSec": 0.18,
+  "retryCount": 3
+}

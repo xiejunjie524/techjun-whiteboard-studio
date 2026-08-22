@@ -1,0 +1,43 @@
+{
+  "sceneId": "scene-03",
+  "canvas": {
+    "width": 1920,
+    "height": 1080
+  },
+  "storyBasis": "把手机切到五 GHz，或者直接用电脑网线测速，结果往往立刻不一样。",
+  "sceneDurationMs": 6400,
+  "elements": [
+    {
+      "id": "element-01",
+      "label": "叙事元素1",
+      "sequence": 1,
+      "narrativeRole": "按字幕顺序出现",
+      "subtitle": "把手机切到五 GHz，或者直接用电脑网线测速，结果往往立刻不一样。",
+      "type": "object",
+      "region": {
+        "x": 46,
+        "y": 306,
+        "width": 1829,
+        "height": 651
+      },
+      "reveal": {
+        "direction": "left_to_right",
+        "startMs": 0,
+        "durationMs": 5900,
+        "maskPaddingPx": 18,
+        "protectedRegions": []
+      },
+      "handPath": {
+        "start": [
+          46,
+          631
+        ],
+        "end": [
+          1875,
+          631
+        ],
+        "easing": "easeInOut"
+      }
+    }
+  ]
+}

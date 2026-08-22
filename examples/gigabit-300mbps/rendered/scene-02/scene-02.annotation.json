@@ -1,0 +1,43 @@
+{
+  "sceneId": "scene-02",
+  "canvas": {
+    "width": 1920,
+    "height": 1080
+  },
+  "storyBasis": "第一步看测速设备：手机连的是二点四 GHz，速度可能先天打折。",
+  "sceneDurationMs": 6300,
+  "elements": [
+    {
+      "id": "element-01",
+      "label": "叙事元素1",
+      "sequence": 1,
+      "narrativeRole": "按字幕顺序出现",
+      "subtitle": "第一步看测速设备：手机连的是二点四 GHz，速度可能先天打折。",
+      "type": "object",
+      "region": {
+        "x": 46,
+        "y": 226,
+        "width": 1829,
+        "height": 731
+      },
+      "reveal": {
+        "direction": "left_to_right",
+        "startMs": 0,
+        "durationMs": 5800,
+        "maskPaddingPx": 18,
+        "protectedRegions": []
+      },
+      "handPath": {
+        "start": [
+          46,
+          591
+        ],
+        "end": [
+          1875,
+          591
+        ],
+        "easing": "easeInOut"
+      }
+    }
+  ]
+}

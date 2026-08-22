@@ -1,0 +1,43 @@
+{
+  "sceneId": "scene-04",
+  "canvas": {
+    "width": 1920,
+    "height": 1080
+  },
+  "storyBasis": "第二步检查网线和网口。千兆宽带，必须接千兆口，网线至少超五类。",
+  "sceneDurationMs": 6400,
+  "elements": [
+    {
+      "id": "element-01",
+      "label": "叙事元素1",
+      "sequence": 1,
+      "narrativeRole": "按字幕顺序出现",
+      "subtitle": "第二步检查网线和网口。千兆宽带，必须接千兆口，网线至少超五类。",
+      "type": "object",
+      "region": {
+        "x": 46,
+        "y": 265,
+        "width": 1829,
+        "height": 692
+      },
+      "reveal": {
+        "direction": "left_to_right",
+        "startMs": 0,
+        "durationMs": 5900,
+        "maskPaddingPx": 18,
+        "protectedRegions": []
+      },
+      "handPath": {
+        "start": [
+          46,
+          611
+        ],
+        "end": [
+          1875,
+          611
+        ],
+        "easing": "easeInOut"
+      }
+    }
+  ]
+}

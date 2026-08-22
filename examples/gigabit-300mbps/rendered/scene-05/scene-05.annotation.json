@@ -1,0 +1,43 @@
+{
+  "sceneId": "scene-05",
+  "canvas": {
+    "width": 1920,
+    "height": 1080
+  },
+  "storyBasis": "第三步看路由器。老路由只有百兆端口，再快的宽带也只能跑到一百。",
+  "sceneDurationMs": 6400,
+  "elements": [
+    {
+      "id": "element-01",
+      "label": "叙事元素1",
+      "sequence": 1,
+      "narrativeRole": "按字幕顺序出现",
+      "subtitle": "第三步看路由器。老路由只有百兆端口，再快的宽带也只能跑到一百。",
+      "type": "object",
+      "region": {
+        "x": 46,
+        "y": 406,
+        "width": 1829,
+        "height": 551
+      },
+      "reveal": {
+        "direction": "left_to_right",
+        "startMs": 0,
+        "durationMs": 5900,
+        "maskPaddingPx": 18,
+        "protectedRegions": []
+      },
+      "handPath": {
+        "start": [
+          46,
+          681
+        ],
+        "end": [
+          1875,
+          681
+        ],
+        "easing": "easeInOut"
+      }
+    }
+  ]
+}

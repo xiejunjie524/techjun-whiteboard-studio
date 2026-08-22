@@ -1,0 +1,43 @@
+{
+  "sceneId": "scene-06",
+  "canvas": {
+    "width": 1920,
+    "height": 1080
+  },
+  "storyBasis": "如果设备和端口都没问题，再把路由器移出弱电箱，减少墙体和金属遮挡。",
+  "sceneDurationMs": 6500,
+  "elements": [
+    {
+      "id": "element-01",
+      "label": "叙事元素1",
+      "sequence": 1,
+      "narrativeRole": "按字幕顺序出现",
+      "subtitle": "如果设备和端口都没问题，再把路由器移出弱电箱，减少墙体和金属遮挡。",
+      "type": "object",
+      "region": {
+        "x": 46,
+        "y": 295,
+        "width": 1829,
+        "height": 662
+      },
+      "reveal": {
+        "direction": "left_to_right",
+        "startMs": 0,
+        "durationMs": 6000,
+        "maskPaddingPx": 18,
+        "protectedRegions": []
+      },
+      "handPath": {
+        "start": [
+          46,
+          626
+        ],
+        "end": [
+          1875,
+          626
+        ],
+        "easing": "easeInOut"
+      }
+    }
+  ]
+}

@@ -36,6 +36,7 @@ python scripts/techjun.py autopilot input.srt --out output-autopilot --config co
 - 线条为深灰素描线，红、橙、蓝、绿色只做少量概念点缀。
 - 场景图不放文字、字母、数字或标签。
 - 默认使用 `assets/drawing-hand-techjun.png`；不存在时回退到原始手部素材。
+- 手部默认采用 `handVisibility: "ink-only"`：只在线稿落墨时出现，上色、凝视和静止阶段自动隐藏；可选 `always` 或 `off`。
 - 精修模式逐步确认；日更模式可在外层 Agent 中一次授权后批量执行。
 
 ## 命令

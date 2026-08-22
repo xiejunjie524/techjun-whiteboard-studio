@@ -6,6 +6,7 @@
   "fps": 60,
   "inkPath": "grid",
   "colorFill": "contour-wipe",
+  "handVisibility": "ink-only",
   "sceneTargetSec": 30,
   "sceneMinSec": 25,
   "sceneMaxSec": 35,

@@ -1,0 +1,43 @@
+{
+  "sceneId": "scene-01",
+  "canvas": {
+    "width": 1920,
+    "height": 1080
+  },
+  "storyBasis": "办了千兆宽带，测速却只有三百兆，别急着怪运营商。",
+  "sceneDurationMs": 6300,
+  "elements": [
+    {
+      "id": "element-01",
+      "label": "叙事元素1",
+      "sequence": 1,
+      "narrativeRole": "按字幕顺序出现",
+      "subtitle": "办了千兆宽带，测速却只有三百兆，别急着怪运营商。",
+      "type": "object",
+      "region": {
+        "x": 46,
+        "y": 285,
+        "width": 1829,
+        "height": 672
+      },
+      "reveal": {
+        "direction": "left_to_right",
+        "startMs": 0,
+        "durationMs": 5800,
+        "maskPaddingPx": 18,
+        "protectedRegions": []
+      },
+      "handPath": {
+        "start": [
+          46,
+          621
+        ],
+        "end": [
+          1875,
+          621
+        ],
+        "easing": "easeInOut"
+      }
+    }
+  ]
+}

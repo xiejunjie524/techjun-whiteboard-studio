@@ -108,6 +108,7 @@ class RegionStreamRenderer:
 
         # 笔尖覆盖
         self.tip: sr.TipOverlay | None = None
+        self.show_tip = cfg.hand_visibility == "always"
         if not bare_tip:
             hand_data = sr._load_hand(hand_png, cfg.target_hand_height) if hand_png else None
             ax, ay = cfg.tip_anchor_x, cfg.tip_anchor_y
@@ -134,7 +135,7 @@ class RegionStreamRenderer:
 
     def _snapshot_with_tip(self, px: int, py: int) -> np.ndarray:
         snap = self.drawn.astype(np.uint8)
-        if self.tip is not None:
+        if self.tip is not None and self.show_tip:
             self.tip.stamp(snap, px, py)
         return snap
 
@@ -376,6 +377,8 @@ class RegionStreamRenderer:
                 fill_static(start_ms)
 
                 allowed = self._allowed_mask(element, elements[idx + 1:])
+                # 手只在真正落墨的线稿阶段出现；上色和停留阶段保持画面干净。
+                self.show_tip = cfg.hand_visibility in ("always", "ink-only")
                 ink_frames = max(1, round(dur_ms * cfg.ink_weight / weight_sum * cfg.fps / 1000))
                 color_frames = max(1, round(dur_ms * cfg.color_weight / weight_sum * cfg.fps / 1000))
 
@@ -407,6 +410,7 @@ class RegionStreamRenderer:
 
                 cur_ms += ink_frames * ms_per_frame
 
+                self.show_tip = cfg.hand_visibility == "always"
                 if cfg.color_fill == "contour-wipe":
                     self._wash_contour(writer, color_frames, allowed)
                 else:
@@ -415,6 +419,7 @@ class RegionStreamRenderer:
 
             # 凝视：补到 total_ms，并确保结尾至少停留 0.5s 完整原图
             gaze_until = max(total_ms, cur_ms + 500)
+            self.show_tip = False
             # 最终帧显示完整原图（凝视）
             self.drawn[...] = self.color_img.astype(np.float32)
             fill_static(gaze_until)
@@ -461,7 +466,9 @@ def _parse_args(argv=None):
     p.add_argument("output", help="输出 MP4 路径")
     p.add_argument("hand", nargs="?", default=str(DEFAULT_HAND), help="手部素材 PNG（默认内置）")
     p.add_argument("--total-ms", type=int, default=None, help="总时长；缺省用标注 sceneDurationMs")
-    p.add_argument("--bare-tip", action="store_true", help="不叠加笔尖/手部")
+    p.add_argument("--bare-tip", action="store_true", help="不叠加笔尖/手部覆盖")
+    p.add_argument("--hand-visibility", default="ink-only", choices=["always", "ink-only", "off"],
+                   help="手部显示: ink-only 仅在线稿落墨时显示(默认); always 全程; off 隐藏")
     p.add_argument("--ink-path", default="grid", choices=["grid", "skeleton"],
                    help="笔迹路径: grid 网格(默认); skeleton 骨架追踪")
     p.add_argument("--color-fill", default="contour-wipe", choices=["contour-wipe", "brush"],
@@ -489,6 +496,7 @@ def _build_cfg(args) -> sr.Config:
     kw["ink_path_mode"] = args.ink_path
     kw["color_fill"] = args.color_fill
     kw["pause_mode"] = args.pause
+    kw["hand_visibility"] = args.hand_visibility
     return sr.Config(**kw)
 
 

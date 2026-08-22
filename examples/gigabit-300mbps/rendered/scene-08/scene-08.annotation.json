@@ -1,0 +1,43 @@
+{
+  "sceneId": "scene-08",
+  "canvas": {
+    "width": 1920,
+    "height": 1080
+  },
+  "storyBasis": "记住：千兆是套餐上限，不是每台设备的保证速度。先排查链路，再找运营商。",
+  "sceneDurationMs": 7100,
+  "elements": [
+    {
+      "id": "element-01",
+      "label": "叙事元素1",
+      "sequence": 1,
+      "narrativeRole": "按字幕顺序出现",
+      "subtitle": "记住：千兆是套餐上限，不是每台设备的保证速度。先排查链路，再找运营商。",
+      "type": "object",
+      "region": {
+        "x": 46,
+        "y": 305,
+        "width": 1829,
+        "height": 652
+      },
+      "reveal": {
+        "direction": "left_to_right",
+        "startMs": 0,
+        "durationMs": 6600,
+        "maskPaddingPx": 18,
+        "protectedRegions": []
+      },
+      "handPath": {
+        "start": [
+          46,
+          631
+        ],
+        "end": [
+          1875,
+          631
+        ],
+        "easing": "easeInOut"
+      }
+    }
+  ]
+}

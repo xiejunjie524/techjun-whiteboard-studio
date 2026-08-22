@@ -43,7 +43,7 @@ def preview(image: Path, annotation: Path, output: Path) -> None:
 def render(image: Path, annotation: Path, output: Path, config: dict) -> None:
     require_file(image, "图片"); require_file(annotation, "标注文件")
     hand = HAND if HAND.exists() else ROOT / "assets" / "drawing-hand.png"
-    run([sys.executable, RENDER, image, annotation, output, hand, "--ink-path", config.get("inkPath", "grid"), "--color-fill", config.get("colorFill", "contour-wipe"), "--cap-long-edge", str(config.get("capLongEdge", 1080)), "--fps", str(config.get("fps", 60))])
+    run([sys.executable, RENDER, image, annotation, output, hand, "--ink-path", config.get("inkPath", "grid"), "--color-fill", config.get("colorFill", "contour-wipe"), "--hand-visibility", config.get("handVisibility", "ink-only"), "--cap-long-edge", str(config.get("capLongEdge", 1080)), "--fps", str(config.get("fps", 60))])
 
 def main() -> int:
     p = argparse.ArgumentParser(prog="techjun", description="科技俊品牌 SRT 白板动画工具")

@@ -92,6 +92,8 @@ class Config:
     ink_path_mode: str = "grid"
     skeleton_min_points: int = 8        # 骨架笔画最少点数（过滤碎片）
     skeleton_resample_spacing: float = 2.5  # 骨架重采样间距（像素）
+    # 手部显示策略：always 全程显示；ink-only 仅在线稿落墨时显示；off 完全隐藏。
+    hand_visibility: str = "ink-only"
 
 
 # ──────────────────────────────────────────────────────────────
@@ -1207,9 +1209,10 @@ class StreamBoardRenderer:
             target[:, :, ch] = target[:, :, ch] * inv + source[:, :, ch] * m
 
     # ── 把当前画布快照（含笔尖）写若干帧 ──
-    def _snapshot_with_tip(self, px: int, py: int) -> np.ndarray:
+    def _snapshot_with_tip(self, px: int, py: int, show_tip: bool | None = None) -> np.ndarray:
         snap = self.drawn.astype(np.uint8)  # astype 已返回新数组，无需再 copy
-        if self.tip is not None:
+        visible = show_tip if show_tip is not None else self.cfg.hand_visibility != "off"
+        if self.tip is not None and visible:
             self.tip.stamp(snap, px, py)
         return snap
 

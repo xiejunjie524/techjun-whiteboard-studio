@@ -1,0 +1,43 @@
+{
+  "sceneId": "scene-07",
+  "canvas": {
+    "width": 1920,
+    "height": 1080
+  },
+  "storyBasis": "最后别只测一次。分别测试五 GHz、网线和不同时间段，才能找到瓶颈。",
+  "sceneDurationMs": 6600,
+  "elements": [
+    {
+      "id": "element-01",
+      "label": "叙事元素1",
+      "sequence": 1,
+      "narrativeRole": "按字幕顺序出现",
+      "subtitle": "最后别只测一次。分别测试五 GHz、网线和不同时间段，才能找到瓶颈。",
+      "type": "object",
+      "region": {
+        "x": 46,
+        "y": 276,
+        "width": 1829,
+        "height": 681
+      },
+      "reveal": {
+        "direction": "left_to_right",
+        "startMs": 0,
+        "durationMs": 6100,
+        "maskPaddingPx": 18,
+        "protectedRegions": []
+      },
+      "handPath": {
+        "start": [
+          46,
+          616
+        ],
+        "end": [
+          1875,
+          616
+        ],
+        "easing": "easeInOut"
+      }
+    }
+  ]
+}

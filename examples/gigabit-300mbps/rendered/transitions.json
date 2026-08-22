@@ -1,0 +1,83 @@
+{
+  "mode": "auto",
+  "version": 1,
+  "transitions": [
+    {
+      "between": [
+        0,
+        1
+      ],
+      "style": "fade",
+      "durationSec": 0.18,
+      "reason": "semantic auto-selection",
+      "previousText": "办了千兆宽带，测速却只有三百兆，别急着怪运营商。",
+      "currentText": "第一步看测速设备：手机连的是二点四 GHz，速度可能先天打折。"
+    },
+    {
+      "between": [
+        1,
+        2
+      ],
+      "style": "fade",
+      "durationSec": 0.18,
+      "reason": "semantic auto-selection",
+      "previousText": "第一步看测速设备：手机连的是二点四 GHz，速度可能先天打折。",
+      "currentText": "把手机切到五 GHz，或者直接用电脑网线测速，结果往往立刻不一样。"
+    },
+    {
+      "between": [
+        2,
+        3
+      ],
+      "style": "fade",
+      "durationSec": 0.18,
+      "reason": "semantic auto-selection",
+      "previousText": "把手机切到五 GHz，或者直接用电脑网线测速，结果往往立刻不一样。",
+      "currentText": "第二步检查网线和网口。千兆宽带，必须接千兆口，网线至少超五类。"
+    },
+    {
+      "between": [
+        3,
+        4
+      ],
+      "style": "fade",
+      "durationSec": 0.18,
+      "reason": "semantic auto-selection",
+      "previousText": "第二步检查网线和网口。千兆宽带，必须接千兆口，网线至少超五类。",
+      "currentText": "第三步看路由器。老路由只有百兆端口，再快的宽带也只能跑到一百。"
+    },
+    {
+      "between": [
+        4,
+        5
+      ],
+      "style": "fade",
+      "durationSec": 0.18,
+      "reason": "semantic auto-selection",
+      "previousText": "第三步看路由器。老路由只有百兆端口，再快的宽带也只能跑到一百。",
+      "currentText": "如果设备和端口都没问题，再把路由器移出弱电箱，减少墙体和金属遮挡。"
+    },
+    {
+      "between": [
+        5,
+        6
+      ],
+      "style": "fade",
+      "durationSec": 0.18,
+      "reason": "semantic auto-selection",
+      "previousText": "如果设备和端口都没问题，再把路由器移出弱电箱，减少墙体和金属遮挡。",
+      "currentText": "最后别只测一次。分别测试五 GHz、网线和不同时间段，才能找到瓶颈。"
+    },
+    {
+      "between": [
+        6,
+        7
+      ],
+      "style": "circlecrop",
+      "durationSec": 0.18,
+      "reason": "semantic auto-selection",
+      "previousText": "最后别只测一次。分别测试五 GHz、网线和不同时间段，才能找到瓶颈。",
+      "currentText": "记住：千兆是套餐上限，不是每台设备的保证速度。先排查链路，再找运营商。"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+﻿[Script Info]
+ScriptType: v4.00+
+PlayResX: 1920
+PlayResY: 1080
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Caption,Microsoft YaHei,44,&H00FFFFFF,&H00FFFFFF,&H002B2B2B,&HCC2B2B2B,0,0,0,0,100,100,0,0,1,2,1,2,90,90,72,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:06.30,Caption,,0,0,0,,办了千兆宽带，测速却只有三百兆，别急着怪运营商。
+Dialogue: 0,0:00:06.30,0:00:12.60,Caption,,0,0,0,,第一步看测速设备：手机连的是二点四 GHz，速度可能先天打折。
+Dialogue: 0,0:00:12.60,0:00:19.00,Caption,,0,0,0,,把手机切到五 GHz，或者直接用电脑网线测速，结果往往立刻不一样。
+Dialogue: 0,0:00:19.00,0:00:25.40,Caption,,0,0,0,,第二步检查网线和网口。千兆宽带，必须接千兆口，网线至少超五类。
+Dialogue: 0,0:00:25.40,0:00:31.80,Caption,,0,0,0,,第三步看路由器。老路由只有百兆端口，再快的宽带也只能跑到一百。
+Dialogue: 0,0:00:31.80,0:00:38.30,Caption,,0,0,0,,如果设备和端口都没问题，再把路由器移出弱电箱，减少墙体和金属遮挡。
+Dialogue: 0,0:00:38.30,0:00:44.90,Caption,,0,0,0,,最后别只测一次。分别测试五 GHz、网线和不同时间段，才能找到瓶颈。
+Dialogue: 0,0:00:44.90,0:00:52.00,Caption,,0,0,0,,记住：千兆是套餐上限，不是每台设备的保证速度。先排查链路，再找运营商。

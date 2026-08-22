@@ -103,7 +103,7 @@ def main() -> int:
         if not args.skip_preview:
             run([sys.executable, ROOT / "scripts/render_annotation_preview.py", image, annotation, preview])
         if not args.skip_render:
-            run([sys.executable, RENDER, image, annotation, video, HAND, "--ink-path", config.get("inkPath", "grid"), "--color-fill", config.get("colorFill", "contour-wipe"), "--cap-long-edge", config.get("capLongEdge", 1080), "--fps", config.get("fps", 60)])
+            run([sys.executable, RENDER, image, annotation, video, HAND, "--ink-path", config.get("inkPath", "grid"), "--color-fill", config.get("colorFill", "contour-wipe"), "--hand-visibility", config.get("handVisibility", "ink-only"), "--cap-long-edge", config.get("capLongEdge", 1080), "--fps", config.get("fps", 60)])
             videos.append(video)
         manifest["scenes"].append({"index": index, "image": str(image), "annotation": str(annotation), "preview": str(preview) if not args.skip_preview else None, "video": str(video) if not args.skip_render else None, "status": "complete"})
         (args.out / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
