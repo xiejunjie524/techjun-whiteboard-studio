@@ -32,6 +32,7 @@
 - 1080P / 60fps 多幕输出
 - 根据字幕语义自动选择转场，并输出可复查的 `transitions.json`
 - 手部按阶段显示：默认只在线稿落墨时出现，避免持续来回晃动
+- 可选 MLGB7 OpenAI 兼容生图技能，见 `skills/mlgb7-image-generation/`
 - 旁白、字幕、信息卡片和音效合成参考
 - Windows、macOS、Linux 支持
 - 可作为 Codex Skill 使用
