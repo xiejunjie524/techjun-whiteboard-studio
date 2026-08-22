@@ -1,4 +1,0 @@
-interface:
-  display_name: "MLGB7 生图"
-  short_description: "通过 MLGB7 OpenAI 兼容接口稳定生成图片"
-  default_prompt: "使用 MLGB7 生图接口生成一张图片。"
